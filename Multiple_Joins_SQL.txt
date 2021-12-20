@@ -1,0 +1,29 @@
+use employsandlaptop;
+
+create table emp(
+id int(20) primary key,
+name varchar(20),
+salary int(40)
+);
+
+create table lapemp(
+id int(10) primary key,
+name varchar(20) not null,
+lapid int(20)
+);
+
+insert into emp(id , name , salary) values (1,'rajendra',90000);
+insert into emp(id , name , salary) values (2,'prasanna',9500000);
+insert into emp(id , name , salary) values (3,'rekha',15100);
+insert into emp(id , name , salary) values (4,'rani',21443);
+insert into emp(id , name , salary) values (5,'venkey',10223664);
+
+select * from emp;
+
+insert into lapemp(id,name) values (101,'dell');
+insert into lapemp(id,name) values(102,'lenovo');
+insert into lapemp(id, name) values (103, 'acer');
+insert into lapemp(id,name) values (104, 'hp');
+insert into lapemp(id,name) values (105, 'samsung');
+
+

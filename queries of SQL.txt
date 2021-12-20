@@ -1,0 +1,49 @@
+CREATE TABLE:
+
+use studentdetails;
+
+create table student(
+id int(10),
+firstname varchar(20),
+lastname varchar(20),
+address varchar(30),
+phonenumber int(11)
+);
+select * from student;
+
+INSERT Values into TABLE :
+
+insert into student(id,lastname,firstname,address,phonenumber) values (22,'gandi','prasanna','velpur','9708579');
+insert into student (id,lastname,firstname,address,phonenumber) values (23,'mallena','rajendra','undarajavaram','855413');
+insert into student(id,lastname,firstname,address,phonenumber) values (24,'penumarthi','rekha','sangareddy','5211496');
+insert into student(id,lastname,firstname,address,phonenumber) values (25,'gandi','rani','velpur','95512349');
+insert into student (id, lastname,firstname,address,phonenumber) value(26,'penymarthi','ramakrishna','hyderabad','9963448');
+insert into student(id,lastName,firstname,address,phonenumber) values (28,'bomina','ruchuka','chegupalam','99541123');
+insert into student (id,lastname,firstname,address,phonenumber) values (29,'gunnam','pavan','kakinada','99844123');
+insert into student(id,lastname,firstname,address,phonenumber) values (30,'begam','hassina','sangareddy','22149963');
+insert into student(id,lastname,firstname,address,phonenumber) values (31,'shake','vasim','charminar','99855234');
+insert into student (id,lastname,firstname,address,phonenumber) value(32,'penymarthi','karthik','sangareddy','99855214');
+
+
+SELECT Command:
+
+select * from student;
+
+WHERE command :
+
+select * from student where id = 22;
+select * from student where address = 'velpur';
+select * from student where lastname != 'gandi';
+select * from student where phonenumber <= 122;
+select DISTINCT address from student;
+select count(DISTINCT address) from student;  //to get unique values
+
+AND , OR, NOT, command :
+
+select address = 'velpur' and id = 22 from student;
+select id = 23 or id <= 26 from student;
+select address = 'velpur' or address = 'tanuku' from student;
+select * from student where id = 22 and address = 'velpur';
+select * from student where address = 'velpur' or address = 'sangareddy';
+select * from student where address = 'velpur' and (id = 22 or lastname = 'prasanna');
+select * from student where NOT address = 'sangareddy';

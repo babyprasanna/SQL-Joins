@@ -1,0 +1,164 @@
+Joins :
+Key Constraints : 
+	1) primary key
+	2) foreing key
+	3)not null
+	4) unique
+	5) check
+	6)index
+
+CREATE TABLE :  //table1 employee details
+
+create table empdetails     
+(
+id int(10) primary key,
+name varchar(20) not null,
+salary int(20) check (salary > 0)
+);
+
+select * from empdetails;
+
+Insert Values into empdetails table :
+
+use employee;
+insert into empdetails(id , name , salary) values (22,'prasanna',9500000);
+insert into empdetails(id , name , salary) values (23,'rajaendra',85100);
+insert into empdetails(id , name , salary) values (24,'rekha',15100);
+insert into empdetails(id , name , salary) values (25,'rani',21443);
+insert into empdetails(id , name , salary) values (26,'ramakrishna',10223664);
+
+select * from empdetails;
+	
+CREATE TABLE lapemp :
+
+use employee;
+create table lapemp(
+id int(10) primary key,
+name varchar(20) not null,
+empid int(20)
+);
+
+select * from lapemp;
+
+INSERT VALUES INTO lapemp :
+
+use employee;
+
+insert into lapemp(id,name,empid) values (1,'dell',22);
+insert into lapemp(id,name, empid) values(2,'lenovo',24);
+insert into lapemp(id, name, empid) values (3, 'hp',22);
+insert into lapemp(id,name, empid) values (4, 'aspire',24);
+
+select * from lapemp;
+
+INNER JOIN :
+
+use employee;
+select * from empdetails ed inner join lapemp le on ed.id = le.empid;
+
+O/P :
+Id               name         salary       id                 name      empid
+24	rekha	15100	2	lenovo	24
+24	rekha	15100	4	aspire	24
+22	prasanna	9500000	1	dell	22
+22	prasanna	9500000	3	hp	22	
+
+LEFT JOIN :
+
+select * from empdetails ed left join lapemp le on ed.id = le.empid;
+
+O/P:
+
+Id               name         salary       id                 name      empid
+22	prasanna	9500000	1	dell	22
+22	prasanna	9500000	3	hp	22
+23	rajaendra	85100	NULL	NULL	NULL
+24	rekha	15100	2	lenovo	24
+24	rekha	15100	4	aspire	24
+25	rani	21443	NULL	NULL	NULL
+26           ramakrishna 10223664 NULL	NULL	NULL	
+
+RIGHT JOIN :
+
+select * from empdetails ed right join lapemp le on ed.id = le.empid;
+
+O/P :
+
+Id               name         salary       id                 name      empid
+
+22	prasanna	9500000	1	dell	22
+24	rekha	15100	2	lenovo	24
+22	prasanna	9500000	3	hp	22
+24	rekha	15100	4	aspire	24
+
+
+STUDENT Details  TABLES For STUDENT & BRANCHS :
+
+create table student(
+id int(20) primary key,
+name varchar(30) not null,
+year int(20) not null,
+sid int(20)
+);
+
+create table branchs(
+id int(30) primary key,
+branch varchar(30) not null
+);
+
+INSERT VALUES Into TABLES STUDENT & BRANCHS :
+
+use students;
+
+insert into branches (id , branch) values (1, 'cse');
+insert into branches (id , branch) values (2, 'it');
+insert into branches (id , branch) values (3, 'ece');
+
+
+insert into student(id, name, year,sid) values(22,'prasanna',2018,1);
+insert into student(id, name, year,sid) values(23,'rajendra',2018,1);
+insert into student(id, name, year,sid) values(24,'rekha',2016,2);
+insert into student(id, name, year,sid) values(25,'rani',2015,2);
+insert into student(id, name, year,sid) values(26,'ram',2012,2);
+insert into student(id, name, year) values(28,'venkey',2011);
+
+select * from student;
+
+JOINS TABLE INNER , LEFT , RIGHT : 
+
+use students;
+
+select * from student st inner join branchs br on st.sid = br.id;
+
+O/P:
+id	name	year	sid	id	branch
+
+22	prasanna	2018	1	1	cse
+23	rajendra	2018	1	1	cse
+24	rekha	2016	2	2	it
+25	rani	2015	2	2	it
+26	ram	2012	2	2	it
+
+select * from student st left join branchs br on st.sid = br.id;
+
+O/P:
+id	name	year	sid	id	branch
+
+22	prasanna	2018	1	1	cse
+23	rajendra	2018	1	1	cse
+24	rekha	2016	2	2	it
+25	rani	2015	2	2	it
+26	ram	2012	2	2	it
+28	venkey	2011	NULL	NULL	NULL		
+
+select * from student st right join branchs br on st.sid = br.id;
+O/P:
+
+id	name	year	sid	id	branch
+
+22	prasanna	2018	1	1	cse
+23	rajendra	2018	1	1	cse
+24	rekha	2016	2	2	it
+25	rani	2015	2	2	it
+26	ram	2012	2	2	it
+NULL	NULL	NULL	NULL	3	ece

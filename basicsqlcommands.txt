@@ -1,0 +1,109 @@
+Table Create :
+CREATE TABLE employe
+(
+	empname char(10),
+    empno varchar(10),
+    address varchar(10),
+    phone int(10),
+    workrole varchar(10)
+    );
+    Select * from employe;
+
+INSERT INTO VALUES :
+
+insert into employe ( empname ,empno, address, phone, workrole )
+values ('Raja' ,'060' , 'tanuku' , '123654789' , 'sremployee' );
+insert into employe values ( ' chinna ' , '022' , 'tanuku' , '896325148' , 'jremployee' );
+Select * from  employe;
+
+insert into employe values ( 'sri' , '236' , ' ', '1236598' , ' jremploye' );
+select * from employe;
+O/p : address is NULL 
+
+DISTINCT :
+Select DISTINCT empname,workrole from employe;
+
+O/P :unique values are display 
+
+Select Comands :
+
+Select * from employe;
+
+O/p:total table
+
+Select empname from employe where empname  ='Raja';
+
+O/p: display Raja
+
+Select * from employe where empname = 'raja';
+
+Select * from employe where empno >  10;
+
+Select * from employe where empno < 10;
+
+Select * from employe where empname >= 'raja';
+
+O/P: name display Raja and above length names
+
+Select * from employe where empname != 'raja';
+
+O/p: other names with out raja
+
+Select * from employe where empname between 'raja' and 'rekha';
+
+Like:
+
+Select * from employe where empname like '%r';
+O/P: 
+No ending R son display none
+
+Select * from employe where empname like 'r%';
+
+O/p: start Name R
+Display Raja , Rekha
+
+Select * from employe where empname like 'Ra__%';
+
+DROP table :
+
+drop table persons;
+select * from persons;
+Noting display
+
+order by :
+1) select * from employe order by empno;
+
+numbers are display byr 0,1.. order ;
+
+2) select * from employe order by empname desc;
+O/P :
+display in order
+
+3) select * from employe order by empname,empno;
+
+O/p : display in order names , empno
+
+Index for table:
+
+CREATE INDEX emp
+ON employe (empname, empno);
+
+O/p :index created
+
+DROP INDEX emp
+ON employe;
+
+o/p: index droped
+
+
+
+
+
+
+
+
+
+
+
+
+
